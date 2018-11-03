@@ -46,8 +46,8 @@ class Tamagotchi {
         if ((this.thirst < 100)&&(!this.died)) {
             screenElem.innerText = this.name + ' випиває склянку водички';
             this.thirst += 10;
-            thirstBar.setAttribute('aria-valuenow', tami.thirst);
-            thirstBar.setAttribute('style', "width:" + tami.thirst + "%");
+            thirstBar.setAttribute('aria-valuenow', this.thirst);
+            thirstBar.setAttribute('style', "width:" + this.thirst + "%");
         } else {
             if ((this.thirst >= 100) &&  (this.died !== 1)) {
                 screenElem.innerText = this.name + ' не хоче більше пити';
@@ -96,7 +96,7 @@ class Tamagotchi {
         })
     }
     lifeLoop() {
-        setInterval(() => {
+        let loop = setInterval(() => {
             if (!this.sleep) {
                 this.happiness -= 20;
                 this.satiety -= 10;
@@ -120,7 +120,7 @@ class Tamagotchi {
             restedBar.setAttribute('style', "width:" + this.rested + "%");
             if ((this.happiness <= 0) || (this.satiety <= 0) || (this.thirst <= 0) || (this.cleanliness <= 0) || (this.rested <= 0)) {
                 this.death();
-                clearInterval(lifeLoop);
+                clearInterval(loop);
             }
         }, 5000);
     }
@@ -137,14 +137,13 @@ const happinessBar = document.querySelector('#happiness');
 const satietyBar = document.querySelector('#satiety');
 const thirstBar = document.querySelector('#thirst');
 const cleanlinessBar = document.querySelector('#cleanliness');
-
 const restedBar = document.querySelector('#rested');
 playBtn.addEventListener('click', tami.play.bind(tami));
 feedBtn.addEventListener('click', tami.feed.bind(tami));
 giveToDrinkBtn.addEventListener('click', tami.giveToDrink.bind(tami));
 washBtn.addEventListener('click', tami.wash.bind(tami));
 putToSleepBtn.addEventListener('click', tami.putToSleep.bind(tami));
-circle.addEventListener('click', () => {circle.classList.add('animate')})
+circle.addEventListener('click', () => {circle.classList.add('animate')});
 
 
 
