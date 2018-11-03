@@ -22,8 +22,8 @@ class Tamagotchi {
         if ((this.happiness < 100)&&(!this.died)) {
             screenElem.innerText = this.name + ' грається';
             this.happiness += 10;
-            happinessBar.setAttribute('aria-valuenow', tami.happiness);
-            happinessBar.setAttribute('style', "width:" + tami.happiness + "%");
+            happinessBar.setAttribute('aria-valuenow', this.happiness);
+            happinessBar.setAttribute('style', "width:" + this.happiness + "%");
         } else {
             if ((this.happiness >= 100) && (this.died !== 1)) {
                 screenElem.innerText = this.name + ' втомився від ігор';
@@ -34,8 +34,8 @@ class Tamagotchi {
         if ((this.satiety < 100)&&(!this.died)) {
             screenElem.innerText = this.name + ' смакує смаколиком';
             this.satiety += 10;
-            satietyBar.setAttribute('aria-valuenow', tami.satiety);
-            satietyBar.setAttribute('style', "width:" + tami.satiety + "%");
+            satietyBar.setAttribute('aria-valuenow', this.satiety);
+            satietyBar.setAttribute('style', "width:" + this.satiety + "%");
         } else {
             if ((this.happiness >= 100) &&  (this.died !== 1)) {
                 screenElem.innerText = this.name + ' не голодний';
@@ -58,8 +58,8 @@ class Tamagotchi {
         if ((this.cleanliness < 100)&&(!this.died)) {
             screenElem.innerText = this.name + ' приймає ванну';
             this.cleanliness += 10;
-            cleanlinessBar.setAttribute('aria-valuenow', tami.cleanliness);
-            cleanlinessBar.setAttribute('style', "width:" + tami.cleanliness + "%");
+            cleanlinessBar.setAttribute('aria-valuenow', this.cleanliness);
+            cleanlinessBar.setAttribute('style', "width:" + this.cleanliness + "%");
         } else {
             if ((this.cleanliness >= 100) &&  (this.died !== 1)) {
                 screenElem.innerText = this.name + ' чистий' ;
@@ -73,8 +73,8 @@ class Tamagotchi {
             setTimeout(()=> {
                 if ((this.rested < 100)&&(!this.died)) {
                     this.rested += 20;
-                    restedBar.setAttribute('aria-valuenow', tami.rested);
-                    restedBar.setAttribute('style', "width:" + tami.rested + "%");
+                    restedBar.setAttribute('aria-valuenow', this.rested);
+                    restedBar.setAttribute('style', "width:" + this.rested + "%");
                     screenElem.innerText = this.name + ' прокинувся';
                 } else {
                     this.rested = 100;
@@ -117,7 +117,7 @@ class Tamagotchi {
             cleanlinessBar.setAttribute('aria-valuenow', this.cleanliness);
             cleanlinessBar.setAttribute('style', "width:" + this.cleanliness + "%");
             restedBar.setAttribute('aria-valuenow', this.rested);
-            restedBar.setAttribute('style', "width:" + tami.rested + "%");
+            restedBar.setAttribute('style', "width:" + this.rested + "%");
             if ((this.happiness <= 0) || (this.satiety <= 0) || (this.thirst <= 0) || (this.cleanliness <= 0) || (this.rested <= 0)) {
                 this.death();
                 clearInterval(lifeLoop);
