@@ -19,7 +19,7 @@ class Tamagotchi {
         this.name = newName;
     }
     play() {
-        if ((this.happiness < 100)&&(!this.died)) {
+        if ((this.happiness < 100)&&(!this.died)&&(!this.sleep)) {
             screenElem.innerText = this.name + ' грається';
             this.happiness += 10;
             happinessBar.setAttribute('aria-valuenow', this.happiness);
@@ -31,7 +31,7 @@ class Tamagotchi {
         }
     }
     feed() {
-        if ((this.satiety < 100)&&(!this.died)) {
+        if ((this.satiety < 100)&&(!this.died)&&(!this.sleep)) {
             screenElem.innerText = this.name + ' смакує смаколиком';
             this.satiety += 10;
             satietyBar.setAttribute('aria-valuenow', this.satiety);
@@ -43,7 +43,7 @@ class Tamagotchi {
         }
     }
     giveToDrink() {
-        if ((this.thirst < 100)&&(!this.died)) {
+        if ((this.thirst < 100)&&(!this.died)&&(!this.sleep)) {
             screenElem.innerText = this.name + ' випиває склянку водички';
             this.thirst += 10;
             thirstBar.setAttribute('aria-valuenow', this.thirst);
@@ -55,7 +55,7 @@ class Tamagotchi {
         }
     }
     wash() {
-        if ((this.cleanliness < 100)&&(!this.died)) {
+        if ((this.cleanliness < 100)&&(!this.died)&&(!this.sleep)) {
             screenElem.innerText = this.name + ' приймає ванну';
             this.cleanliness += 10;
             cleanlinessBar.setAttribute('aria-valuenow', this.cleanliness);
